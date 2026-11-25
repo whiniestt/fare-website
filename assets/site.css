@@ -23,5 +23,19 @@
 .catalog .section-copy{margin-bottom:20px}
 @media(max-width:600px){.server-card{width:290px;min-height:190px;padding:22px 24px}.catalog{padding-left:5%;padding-right:5%}.catalog-hint{font-size:8px}.hero-full h1 .gradient-text{filter:none}}
 
-/* ZEON-inspired page transition loader */
-#fare-page-loader{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background:linear-gradient(135deg,#f4f4f1 0%,#d9d9d6 42%,#f8f8f6 100%);opacity:1;visibility:visible;transition:opacity .42s ease,visibility .42s ease;pointer-events:all}#fare-page-loader:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 43%,#ffffffa8 49%,transparent 56%);transform:translateX(-100%);animation:fare-loader-sweep .85s ease forwards}#fare-page-loader:after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent,#7778,transparent);transform:scaleX(.15);animation:fare-loader-line .65s ease forwards}#fare-page-loader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}.fare-loader-mark{position:relative;z-index:1;color:#111;font:800 25px/1 Inter,Arial,sans-serif;letter-spacing:.24em;text-indent:.24em}.fare-loader-mark:after{content:"";display:block;width:34px;height:2px;margin:14px auto 0;background:#111;transform-origin:left;animation:fare-loader-line .55s ease forwards}@keyframes fare-loader-sweep{to{transform:translateX(100%)}}@keyframes fare-loader-line{to{transform:scaleX(1)}}@media(prefers-reduced-motion:reduce){#fare-page-loader:before,#fare-page-loader:after,.fare-loader-mark:after{animation:none}#fare-page-loader{transition:none}}
+/* Fare secure-session transition — based on the ZEON loader shown in the reference recording */
+#fare-page-loader{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background-color:#050505;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:28px 28px;background-position:center;opacity:1;visibility:visible;transition:opacity .38s ease,visibility .38s ease;pointer-events:all}
+#fare-page-loader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+.fare-loader-content{width:min(88vw,420px);display:flex;flex-direction:column;align-items:center;text-align:center;transform:translateY(-2vh)}
+.fare-loader-emblem{position:relative;width:82px;height:82px;display:grid;place-items:center;margin-bottom:8px}
+.fare-loader-emblem:before{content:"";position:absolute;inset:3px;border:2px solid #ffffff12;border-top-color:#00b98a;border-right-color:#397bff;border-radius:50%;animation:fare-ring-spin 1.15s linear infinite}
+.fare-loader-emblem:after{content:"";position:absolute;inset:13px;border:1px solid #ffffff12;border-radius:50%}
+.fare-loader-shield{position:relative;z-index:1;width:30px;height:34px;color:#777}
+.fare-loader-brand{font:800 36px/.95 Inter,Arial,sans-serif;letter-spacing:.02em;color:#e5e5e5;text-shadow:0 0 24px #ffffff16}
+.fare-loader-state{margin-top:8px;font:700 17px/1.15 Inter,Arial,sans-serif;letter-spacing:.19em;color:#d5d5d5}
+.fare-loader-caption{margin-top:15px;font:8px/1.5 monospace;letter-spacing:.18em;color:#555;text-transform:uppercase}
+.fare-loader-progress{position:relative;width:180px;height:2px;margin-top:14px;background:#ffffff12;overflow:hidden}
+.fare-loader-progress:after{content:"";position:absolute;inset:0 auto 0 0;width:34%;background:#bdbdbd;box-shadow:0 0 9px #fff8;animation:fare-progress 1.05s ease-in-out infinite}
+@keyframes fare-ring-spin{to{transform:rotate(360deg)}}
+@keyframes fare-progress{0%{transform:translateX(-110%)}100%{transform:translateX(310%)}}
+@media(prefers-reduced-motion:reduce){.fare-loader-emblem:before,.fare-loader-progress:after{animation:none}#fare-page-loader{transition:none}}
