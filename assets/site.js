@@ -1,0 +1,1 @@
+document.querySelector('.menu')?.addEventListener('click',()=>document.querySelector('.links')?.classList.toggle('open'));document.querySelectorAll('.links a').forEach(a=>{if(a.pathname===location.pathname)a.classList.add('active')});
